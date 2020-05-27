@@ -59,7 +59,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Chelsymooy\\Subscriptions\\Providers\\SubscriptionsServiceProvider"
+                "Chelsymooy\\Subscriptions\\Providers\\SubscriptionServiceProvider"
             ]
         }
     },
