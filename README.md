@@ -19,7 +19,7 @@
 
 1. Install the package via composer:
     ```shell
-    composer require chelsymooy/laravel-subscriptions
+    composer require chelsymooy/laravel-subscription
     ```
 
 2. Publish resources (migrations and config files):
@@ -27,12 +27,17 @@
     php artisan vendor:publish
     ```
 
-3. Execute migrations via the following command:
+3. Add service provider in config/app.php:
+    ```shell
+    Chelsymooy\Subscriptions\Providers\SubscriptionServiceProvider::class,
+    ```
+
+4. Execute migrations via the following command:
     ```shell
     php artisan migrate
     ```
 
-4. Done!
+5. Done!
 
 
 ## Usage

@@ -15,7 +15,7 @@
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">update</i> {{$dashboard['last']['users']->diffForHumans()}}
+                <i class="material-icons">update</i> {{$dashboard['last']['users'] ? $dashboard['last']['users']->diffForHumans() : ''}}
               </div>
             </div>
           </div>
@@ -63,7 +63,7 @@
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">info_outline</i> Last unsubscribe {{$dashboard['last']['subs']->diffForHumans()}}
+                <i class="material-icons">info_outline</i> {{$dashboard['last']['subs'] ? 'Last unsubscribe '.$dashboard['last']['subs']->diffForHumans() : ''}}
               </div>
             </div>
           </div>
