@@ -1,0 +1,68 @@
+{
+    "name": "chelsymooy/laravel-subscriptions",
+    "description": "chelsymooy Subscriptions designed for recurring subscription plan.",
+    "type": "library",
+    "keywords": [
+        "plan",
+        "laravel",
+        "feature",
+        "database",
+        "recurring",
+        "subscription"
+    ],
+    "license": "MIT",
+    "homepage": "https://thunderlab.id",
+    "support": {
+        "email": "chelsy@thunderlab.id",
+        "issues": "https://github.com/chelsymooy/laravel-subscriptions/issues",
+        "source": "https://github.com/chelsymooy/laravel-subscriptions",
+        "docs": "https://github.com/chelsymooy/laravel-subscriptions/blob/master/README.md"
+    },
+    "authors": [
+        {
+            "name": "chelsymooy",
+            "homepage": "https://thunderlab.id",
+            "email": "chelsy@thunderlab.id"
+        }
+    ],
+    "require": {
+        "php": "^7.4.0",
+        "illuminate/console": "^7.0.0",
+        "illuminate/database": "^7.0.0",
+        "illuminate/support": "^7.0.0"
+    },
+    "require-dev": {
+        "illuminate/container": "^7.0.0",
+        "phpunit/phpunit": "^9.0.0"
+    },
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "Chelsymooy\\Subscriptions\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Chelsymooy\\Subscriptions\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Chelsymooy\\Subscriptions\\Providers\\SubscriptionsServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
