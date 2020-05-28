@@ -58,6 +58,7 @@ class SubscriptionServiceProvider extends ServiceProvider {
         // REGISTER MIDDLEWARE
         
         // REGISTER ROUTES
+        $this->mapApiRoutes();
         $this->mapWebRoutes();
 
         // REGISTER VIEWS
@@ -83,8 +84,23 @@ class SubscriptionServiceProvider extends ServiceProvider {
     {
         // REGISTER ROUTES
         Route::middleware('web')
-            ->namespace('Chelsymooy\\Subscriptions\\Http\\Controllers')
+            ->namespace($this->namespace)
             ->prefix('/subs')
             ->group(__DIR__.'/../../routes/web.php');
+    }
+
+    /**
+     * Define the "api" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapApiRoutes()
+    {
+        Route::middleware('api')
+            ->namespace($this->namespace)
+            ->prefix('api/subs')
+            ->group(__DIR__.'/../../routes/api.php');
     }
 }

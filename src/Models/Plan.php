@@ -61,6 +61,11 @@ class Plan extends Model
      **/
     public function price()
     {
-        return $this->hasOne(PlanPrice::class)->orderby('started_at', 'desc')->orderby('ended_at', 'desc');
+        return $this->hasOne(PlanPrice::class)
+            ->where('started_at', '>=', now())
+            ->where(function($q){
+                $q->wherenull('ended_at')->orwhere('ended_at', '>', now());
+            })->orderby('started_at', 'desc')
+            ;
     }
 }

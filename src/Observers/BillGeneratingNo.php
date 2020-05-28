@@ -21,7 +21,7 @@ class BillGeneratingNo
             /////////////////
             // Generate No //
             /////////////////
-            $no = $bill->issued_at->format('yymm.');
+            $no = $bill->issued_at->format('ym.');
 
             ///////////////////
             // Get latest no //
