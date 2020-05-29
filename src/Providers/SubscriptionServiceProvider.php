@@ -15,7 +15,7 @@ use Chelsymooy\Subscriptions\Console\Commands\RecurringBill;
 
 class SubscriptionServiceProvider extends ServiceProvider {
 
-    protected $namespace = 'Chelsymooy\Subpscriptions\Http\Controllers';
+    protected $namespace = 'Chelsymooy\Subscriptions\Http\Controllers';
 
     public const HOME = '/subs/login';
 
