@@ -17,7 +17,7 @@ class BillAPIController extends Controller {
      */
     public function index($subscription_id) {
         //GET
-        $bill    = Bill::where('user_id', Auth::user()->id)->orderby('created_at', 'desc')->paginate();
+        $bill    = Bill::where('user_id', Auth::user()->id)->wherenotnull('issued_at')->orderby('issued_at', 'desc')->paginate();
 
         return response()->json([
             'status' => true,
