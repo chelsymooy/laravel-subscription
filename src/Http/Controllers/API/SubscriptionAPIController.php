@@ -18,7 +18,7 @@ class SubscriptionAPIController extends Controller {
      */
     public function show($id) {
         //GET SUBSCRIPTION
-        $sub    = [];
+        $sub    = Subscription::where('user_id', Auth::user()->id)->orderby('created_at', 'desc')->paginate();
 
         return response()->json([
             'status' => true,
