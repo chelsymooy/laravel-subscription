@@ -7,16 +7,18 @@ use DB, Exception, Auth;
 use App\Http\Controllers\Controller;
 use Chelsymooy\Subscriptions\Models\Subscription;
 
+use Chelsymooy\Subscriptions\Http\Requests\API\UpdateSubscriptionAPIRequest;
+
 /**
  * @group API
  *
  */
 class SubscriptionAPIController extends Controller {
     /**
-     * Show
+     * index
      *
      */
-    public function show($id) {
+    public function index() {
         //GET SUBSCRIPTION
         $sub    = Subscription::where('user_id', Auth::user()->id)->orderby('created_at', 'desc')->paginate();
 
@@ -33,7 +35,6 @@ class SubscriptionAPIController extends Controller {
      */
     public function update($id, UpdateSubscriptionAPIRequest $request) {
         try {
-
             $uid    = Auth::user()->id;
             $input  = $request->only('settings');
 

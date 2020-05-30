@@ -18,9 +18,9 @@ Route::namespace('API')->group(function() {
 	Route::get('plans', 						'PlanAPIController@index');
 	
 	Route::middleware('auth:api')->group(function() {
-		Route::get('subscriptions/{id}', 		'SubscriptionAPIController@show');
+		Route::get('subscriptions',				'SubscriptionAPIController@index');
 		Route::patch('subscriptions/{id}', 		'SubscriptionAPIController@update');
 		
-		Route::get('bills/{subscription_id}',	'BillAPIController@index');
+		Route::get('subscriptions/{subscription_id}/bills',		'BillAPIController@index');
 	});
 });
