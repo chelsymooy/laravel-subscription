@@ -62,9 +62,9 @@ class Plan extends Model
     public function price()
     {
         return $this->hasOne(PlanPrice::class)
-            ->where('started_at', '>=', now())
+            ->where('started_at', '<=', now())
             ->where(function($q){
-                $q->wherenull('ended_at')->orwhere('ended_at', '>', now());
+                $q->wherenull('ended_at')->orwhere('ended_at', '>=', now());
             })->orderby('started_at', 'desc')
             ;
     }
