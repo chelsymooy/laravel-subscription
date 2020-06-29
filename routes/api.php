@@ -19,6 +19,7 @@ Route::namespace('API')->group(function() {
 	
 	Route::middleware('auth:api')->group(function() {
 		Route::get('subscriptions',				'SubscriptionAPIController@index');
+		Route::post('subscriptions', 			'SubscriptionAPIController@store');
 		Route::patch('subscriptions/{id}', 		'SubscriptionAPIController@update');
 		
 		Route::get('subscriptions/{subscription_id}/bills',		'BillAPIController@index');
