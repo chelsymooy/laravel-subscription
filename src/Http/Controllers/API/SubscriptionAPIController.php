@@ -34,7 +34,7 @@ class SubscriptionAPIController extends Controller {
      * Store
      *
      */
-    public function store($id, StoreSubscriptionAPIRequest $request) {
+    public function store(StoreSubscriptionAPIRequest $request) {
         try {
             $uid    = Auth::user()->id;
             $input  = $request->only(['plan_price_id', 'settings']);
