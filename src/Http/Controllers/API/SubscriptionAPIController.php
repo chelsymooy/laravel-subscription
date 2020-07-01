@@ -52,6 +52,7 @@ class SubscriptionAPIController extends Controller {
 
             $subscription->user_id          = $uid;
             $subscription->plan_price_id    = $input['plan_price_id'];
+            $subscription->started_at       = now();
             $subscription->settings         = $settings;
             $subscription->save();
             
