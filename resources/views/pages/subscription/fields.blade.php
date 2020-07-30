@@ -101,12 +101,12 @@
   <label class="col-sm-2 col-form-label">&nbsp;</label>
   <div class="col-sm-4">
     <div class="form-group bmd-form-group is-filled"> 
-      <input class="form-control" name="settings[customer_logo]" id="input-settings-customer_logo" type="text" placeholder="Vernon Building" value="{{$subscription['settings']['customer_logo']}}" required="true" aria-required="true">
+      <input class="form-control" name="settings[customer_logo]" id="input-settings-customer_logo" type="text" placeholder="LOGO URL" value="{{$subscription['settings']['customer_logo']}}" required="true" aria-required="true">
     </div>
   </div>
   <div class="col-sm-3">
     <div class="form-group bmd-form-group is-filled"> 
-      <input class="form-control" name="settings[customer_website]" id="input-settings-customer_website" type="text" placeholder="Vernon Building" value="{{$subscription['settings']['customer_website']}}" required="true" aria-required="true">
+      <input class="form-control" name="settings[customer_website]" id="input-settings-customer_website" type="text" placeholder="WEBSITE URL" value="{{$subscription['settings']['customer_website']}}" required="true" aria-required="true">
     </div>
   </div>
 </div>
