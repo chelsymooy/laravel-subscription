@@ -28,7 +28,7 @@ class DashboardController extends Controller {
         $dashboard['stat']['bills']     = Bill::wherenotnull('issued_at')->wherenull('paid_at')->sum('amount');
         $dashboard['last']['bills']     = Bill::wherenotnull('issued_at')->wherenull('paid_at')->count();
         $dashboard['stat']['subs']      = Subscription::where('ended_at', '>', now())->count();
-        $dashboard['last']['subs']      = Subscription::where('ended_at', '<=', now())->orderby('ended_at', 'desc')->first()->ended_at;
+        $dashboard['last']['subs']      = Subscription::where('ended_at', '<=', now())->orderby('ended_at', 'desc')->firstornew()->ended_at;
 
         $start      = now()->startofday()->subDays(6);
         $end        = now()->startofday()->addDays(1);

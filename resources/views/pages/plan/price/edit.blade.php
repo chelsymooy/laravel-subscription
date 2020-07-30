@@ -6,6 +6,7 @@
       <div class="row">
         <div class="col-md-12">
           <form method="post" action="{{route('subs.prices.update', [$plan_id, $price->id])}}" autocomplete="off" class="form-horizontal">
+            @csrf
             @method('PATCH')
             <div class="card">
               <div class="card-header card-header-primary">

@@ -6,6 +6,7 @@
       <div class="row">
         <div class="col-md-12">
           <form method="post" action="{{route('subs.subscriptions.store')}}" autocomplete="off" class="form-horizontal">
+            @csrf
             <div class="card">
               <div class="card-header card-header-primary">
                 <h4 class="card-title">New subscription</h4>
