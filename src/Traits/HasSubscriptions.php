@@ -24,15 +24,16 @@ trait HasSubscriptions
      */
     public function subscribe(PlanPrice $price, Carbon $started_at, $settings) {
         $ended_at   = Carbon::parse($started_at)->addDays(config()->get('subscription.billing_day'));
-        switch (strtolower($price->settings['recurring_opt'])) {
+
+        switch (strtolower($price->recurring_opt)) {
             case 'day':
-                $ended_at->addDays($price->settings['recurring_val']);
+                $ended_at->addDays($price->recurring_val);
                 break;
             case 'month':
-                $ended_at->addMonthsNoOverflow($price->settings['recurring_val']);
+                $ended_at->addMonthsNoOverflow($price->recurring_val);
                 break;
             case 'year':
-                $ended_at->addYearNoOverflow($price->settings['recurring_val']);
+                $ended_at->addYearNoOverflow($price->recurring_val);
                 break;
             default:
                 break;
