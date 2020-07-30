@@ -49,6 +49,8 @@ class SubscriptionController extends Controller {
                 'customer_name'     => '',
                 'customer_address'  => '',
                 'customer_phone'    => '',
+                'customer_logo'     => '',
+                'customer_website'  => '',
                 'recurring_toggle'  => true,
                 'bank_name'     => config()->get('subscription.payment_info.bank_name'),
                 'bank_currency' => config()->get('subscription.payment_info.bank_currency'),
