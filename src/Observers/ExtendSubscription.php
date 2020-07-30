@@ -16,7 +16,7 @@ class ExtendSubscription
     public function saved(Bill $bill)
     {
         //
-        if(!is_null($bill->paid_at) && $bill->subscription->settings['recurring_toggle'] && $bill->subscription->ended_at < $bill->issued_at){
+        if(!is_null($bill->paid_at) && $bill->subscription->settings['recurring_toggle'] && $bill->subscription->ended_at <= $bill->issued_at){
             $price  = $bill->subscription->price;
             switch (strtolower($price->recurring_opt)) {
                 case 'day':

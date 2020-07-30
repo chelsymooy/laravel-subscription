@@ -114,6 +114,7 @@
                       </td>
                       <td>
                         <form method="post" action="{{route('subs.bills.pay', [$subscription->id, $bill->id])}}">
+                          @csrf
                           @method('PATCH')
                           @if($bill->issued_at)
                             <a href="#" class="btn btn-sm btn-disabled">Edit<div class="ripple-container"></div></a>

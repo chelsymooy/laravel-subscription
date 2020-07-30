@@ -85,9 +85,9 @@
   <div class="col-sm-2">
     <div class="form-group bmd-form-group is-filled"> 
       <select class="form-control" name="details[penalty_period_opt]" id="input-details-penalty_period_opt" required="true" aria-required="true">
-        <option value="day" @if($bill['details']['recurring_opt'] === "day") selected @endif>Day</option>
-        <option value="month" @if($bill['details']['recurring_opt'] === "month") selected @endif>Month</option>
-        <option value="year" @if($bill['details']['recurring_opt'] === "year") selected @endif>Year</option>
+        <option value="day" @if($bill['details']['penalty_period_opt'] === "day") selected @endif>Day</option>
+        <option value="month" @if($bill['details']['penalty_period_opt'] === "month") selected @endif>Month</option>
+        <option value="year" @if($bill['details']['penalty_period_opt'] === "year") selected @endif>Year</option>
       </select>
     </div>
   </div>

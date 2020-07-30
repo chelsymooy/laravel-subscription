@@ -86,6 +86,7 @@
                       </td>
                       <td>
                         <form method="post" action="{{route('subs.prices.destroy', [$plan->id, $price->id])}}">
+                          @csrf
                           @method('DELETE')
                           <button class="btn btn-sm btn-danger">Delete<div class="ripple-container"></div></button>
                           <a href="{{ route('subs.prices.edit', [$plan->id, $price->id]) }}" class="btn btn-sm btn-primary">Edit<div class="ripple-container"></div></a>
