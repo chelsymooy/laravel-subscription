@@ -59,7 +59,7 @@ class Subscription extends Model
         'settings.customer_name'    => 'required|string',
         'settings.customer_address' => 'required|string',
         'settings.customer_phone'   => 'required|string',
-        'settings.customer_logo'    => 'required|string',
+        'settings.customer_logo'    => 'nullable|string',
         'settings.customer_website' => 'required|string',
 
         'settings.bank_name'        => 'required|string',

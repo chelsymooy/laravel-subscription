@@ -24,6 +24,7 @@
               <table class="table">
                 <thead class=" text-primary">
                   <th> ID </th>
+                  <th> Project ID </th>
                   <th> Name </th>
                   <th> Features </th>
                   <th> Price </th>
@@ -33,6 +34,7 @@
                   @forelse($plans as $plan)
                     <tr>
                       <td> {{ $plan->id }} </td>
+                      <td> {{ $plan->project_id }} </td>
                       <td>
                         {{ $plan->name }} {!! $plan->is_active ? '<span class="badge badge-primary">active</span>' : '<span class="badge badge-default">inactive</span>' !!}
                       </td>

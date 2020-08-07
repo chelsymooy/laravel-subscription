@@ -54,7 +54,7 @@ class RecurringBill extends Command
                 $lines      = [];
                 //1A. PREPARE SUBS
                 $lines[]    = [
-                    'item'      => $v->price->plan->name, 
+                    'item'      => $v->price->plan->name.' for '.$v->settings['customer_website'], 
                     'qty'       => $v->price->recurring_val, 
                     'unit'      => $v->price->recurring_opt,
                     'price'     => $v->price->price,

@@ -1,4 +1,13 @@
 <div class="row">
+  <label class="col-sm-2 col-form-label">Project ID</label>
+  <div class="col-sm-6">
+    <div class="form-group bmd-form-group is-filled">
+      <input class="form-control" name="project_id" id="input-project_id" type="text" placeholder="BASILID" value="{{$plan['project_id']}}" required="true" aria-required="true">
+    </div>
+  </div>
+</div>
+
+<div class="row">
   <label class="col-sm-2 col-form-label">Name</label>
   <div class="col-sm-6">
     <div class="input-group form-group bmd-form-group is-filled">

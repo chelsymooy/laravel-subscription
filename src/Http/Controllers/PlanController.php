@@ -32,6 +32,7 @@ class PlanController extends Controller {
     public function create() {
         $plan   = [
             'id'        => null, 
+            'project_id'=> null, 
             'name'      => null, 
             'is_active' => true, 
             'features'  => [

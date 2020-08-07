@@ -27,7 +27,14 @@
             </div>
 
             <div class="clearfix">&nbsp;</div>
-
+            <div class="row">
+              <div class="col-sm-2">
+                Project ID
+              </div>
+              <div class="col-sm-7">
+                {{ $plan->project_id }}
+              </div>
+            </div>
             <div class="row">
               <div class="col-sm-2">
                 Name

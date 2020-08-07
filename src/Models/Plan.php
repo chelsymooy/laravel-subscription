@@ -18,6 +18,7 @@ class Plan extends Model
     protected $dates = ['deleted_at'];
 
     public $fillable = [
+        'project_id',
         'name',
         'features',
         'is_active'
@@ -40,6 +41,7 @@ class Plan extends Model
      * @var array
      */
     public static $rules = [
+        'project_id'                => 'required|string',
         'name'                      => 'required|string',
         'features'                  => 'nullable|array',
         // 'features.*.title'          => 'required|string',
