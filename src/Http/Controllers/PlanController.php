@@ -72,7 +72,7 @@ class PlanController extends Controller {
         /*----------  Process  ----------*/
         try {
 	       	DB::beginTransaction();
-	       	$plan 		= (new Plan)->fill($request->only('name', 'is_active'));
+	       	$plan 		= (new Plan)->fill($request->only('name', 'is_active', 'project_id'));
             //PARSING FEATURES
             $tmp        = $request->get('features');
             $features   = [];
