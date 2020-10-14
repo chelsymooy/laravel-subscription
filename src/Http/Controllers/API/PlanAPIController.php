@@ -15,7 +15,13 @@ class PlanAPIController extends Controller {
      *
      */
     public function index() {
-        $plans 	    = Plan::where('is_active', true)->with(['price'])->paginate();
+        $plans 	    = Plan::where('is_active', true);
+
+        if(request()->has('project_id')){
+            $plans  = $plans->where('project_id', request()->get('project_id'));
+        }
+
+        $plans      = $plans->with(['price'])->paginate();
 
         return response()->json([
             'status' => true,

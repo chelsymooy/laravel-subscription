@@ -50,11 +50,27 @@ class RecurringBill extends Command
                 ->with(['price', 'price.plan'])->get();
 
             foreach ($active_subs as $k => $v) {
+                $pstart  = Carbon::parse($v->ended_at)->subDays(config()->get('subscription.billing_day'));
+                switch (strtolower($v->price->recurring_opt)) {
+                    case 'day':
+                        $pend= Carbon::parse($period)->addDays($v->price->recurring_val);
+                        break;
+                    case 'month':
+                        $pend= Carbon::parse($period)->addMonthsNoOverflow($v->price->recurring_val);
+                        break;
+                    case 'year':
+                        $pend= Carbon::parse($period)->addYearsNoOverflow($v->price->recurring_val);
+                        break;
+                    default:
+                        $pend= Carbon::parse($period);
+                        break;
+                }
+
                 //1. PREPARE LINES
                 $lines      = [];
                 //1A. PREPARE SUBS
                 $lines[]    = [
-                    'item'      => $v->price->plan->name.' for '.$v->settings['customer_website'], 
+                    'item'      => $v->price->plan->name.' plan for '.$v->settings['customer_website'].' from '.$pstart->format('d/m/Y').' to '.$pend->format('d/m/Y'), 
                     'qty'       => $v->price->recurring_val, 
                     'unit'      => $v->price->recurring_opt,
                     'price'     => $v->price->price,
