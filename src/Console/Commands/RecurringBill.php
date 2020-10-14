@@ -53,16 +53,16 @@ class RecurringBill extends Command
                 $pstart  = Carbon::parse($v->ended_at)->subDays(config()->get('subscription.billing_day'));
                 switch (strtolower($v->price->recurring_opt)) {
                     case 'day':
-                        $pend= Carbon::parse($period)->addDays($v->price->recurring_val);
+                        $pend= Carbon::parse($pstart)->addDays($v->price->recurring_val);
                         break;
                     case 'month':
-                        $pend= Carbon::parse($period)->addMonthsNoOverflow($v->price->recurring_val);
+                        $pend= Carbon::parse($pstart)->addMonthsNoOverflow($v->price->recurring_val);
                         break;
                     case 'year':
-                        $pend= Carbon::parse($period)->addYearsNoOverflow($v->price->recurring_val);
+                        $pend= Carbon::parse($pstart)->addYearsNoOverflow($v->price->recurring_val);
                         break;
                     default:
-                        $pend= Carbon::parse($period);
+                        $pend= Carbon::parse($pstart);
                         break;
                 }
 
