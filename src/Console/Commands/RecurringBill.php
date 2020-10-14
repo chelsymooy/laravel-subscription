@@ -50,7 +50,9 @@ class RecurringBill extends Command
                 ->with(['price', 'price.plan'])->get();
 
             foreach ($active_subs as $k => $v) {
-                $pstart  = Carbon::parse($v->ended_at)->subDays(config()->get('subscription.billing_day'));
+                $nth    = 1;
+
+                $pstart = Carbon::parse($v->ended_at)->subDays(config()->get('subscription.billing_day'));
                 switch (strtolower($v->price->recurring_opt)) {
                     case 'day':
                         $pend= Carbon::parse($pstart)->addDays($v->price->recurring_val);
@@ -76,6 +78,7 @@ class RecurringBill extends Command
                     'price'     => $v->price->price,
                     'discount'  => $v->price->discount
                 ];
+
                 //1B. PREPARE PENALTIES
                 $last_bill  = Bill::where('issued_at', '<', $v->ended_at)->where('user_id', $v->user_id)->orderby('issued_at', 'desc')->first();
                 $paid       = ($last_bill ? $last_bill->paid_at : $issued);
@@ -103,6 +106,10 @@ class RecurringBill extends Command
                         'price'     => ceil($late / $last_bill->details['penalty_period_val']) * $last_bill->details['penalty_rate'],
                         'discount'  => 0
                     ];
+
+                    if(isset($last_bill->details['nth'])){
+                        $nth    = $last_bill->details['nth'] + 1;
+                    }
                 }
 
                 //2. PREPARE DETAILS
@@ -139,6 +146,8 @@ class RecurringBill extends Command
                 $details['bank_currency']       = $v->settings['bank_currency'];
                 $details['account_no']          = $v->settings['account_no'];
                 $details['account_name']        = $v->settings['account_name'];
+
+                $details['nth']                 = $nth;
                 
                 //3. ISSUE BILLS
                 DB::beginTransaction();
